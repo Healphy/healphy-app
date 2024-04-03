@@ -53,7 +53,7 @@ export default function LoginPage(): JSX.Element {
             </button>
             <button
               className="flex items-center justify-center gap-2 w-full p-3 rounded-lg border text-base font-medium text-gray-950
-              hover:bg-slate-50
+              hover:bg-slate-100
               transition-all"
             >
               <Image src={googleIcon} alt="google-icon" quality={100} />
