@@ -1,4 +1,4 @@
-export default function Home(): JSX.Element {
+export default function DoctorsPage(): JSX.Element {
   return (
     <>
       <main>

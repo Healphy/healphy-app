@@ -1,4 +1,4 @@
-export default function Home(): JSX.Element {
+export default function MyProfilePage(): JSX.Element {
   return (
     <>
       <main>

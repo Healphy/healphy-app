@@ -1,6 +1,6 @@
 import TopCard from 'components/TopCard'
 
-export default function Home(): JSX.Element {
+export default function DashboardPage(): JSX.Element {
   return (
     <>
       <main className="p-7 w-full">
