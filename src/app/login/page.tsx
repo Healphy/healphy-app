@@ -48,10 +48,14 @@ export default function LoginPage(): JSX.Element {
                 Esqueci a senha
               </a>
             </div>
-            <button className=" w-full p-3 rounded-lg bg-blue-600 text-white">
+            <button className=" w-full p-3 rounded-lg bg-blue-600 hover:bg-blue-800 transition-all text-white">
               Sign in
             </button>
-            <button className="flex items-center justify-center gap-2 w-full p-3 rounded-lg border text-base font-medium text-gray-950">
+            <button
+              className="flex items-center justify-center gap-2 w-full p-3 rounded-lg border text-base font-medium text-gray-950
+              hover:bg-slate-50
+              transition-all"
+            >
               <Image src={googleIcon} alt="google-icon" quality={100} />
               Sign in with Google
             </button>
