@@ -17,7 +17,7 @@ export default function LoginPage(): JSX.Element {
           <h1 className="flex justify-center items-center text-4xl font-medium text-gray-950">
             Bem vindo!
           </h1>
-          <p className="text-lg font-light text-gray-600">
+          <p className="text-lg font-normal text-gray-500">
             Por favor, insira seu e-mail e sua senha.
           </p>
           <div className="flex flex-col gap-4">
