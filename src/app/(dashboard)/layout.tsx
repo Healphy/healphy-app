@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
-import './globals.css'
+import '../globals.css'
+import Header from 'components/Header'
+import SideMenu from 'components/SideMenu'
 import { Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
@@ -15,14 +17,22 @@ const inter = Inter({
   display: 'swap',
 })
 
-export default function RootLayout({
+export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
     <html lang="pt-BR" className={inter.className}>
-      <body className="antialiased">{children}</body>
+      <body className="w-full bg-slate-600">
+        <div>
+          <Header />
+          <div className="flex bg-zinc-100">
+            <SideMenu />
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   )
 }
