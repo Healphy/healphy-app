@@ -34,13 +34,13 @@ export const DashboardData: DashboardProps = {
     },
     {
       name: 'João Barp',
-      doctor: 'Dr. Ernesto Fonseca',
+      doctor: 'Dr. Neto Bonato',
       date: '4 de Janeiro, 13h30',
       price: 50,
     },
     {
       name: 'Gustavo Jannuzi',
-      doctor: 'Dr. Ernesto Fonseca',
+      doctor: 'Dr. Neto Bonato',
       date: '4 de Janeiro, 13h30',
       price: 200,
     },
