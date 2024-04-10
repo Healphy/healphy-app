@@ -15,7 +15,7 @@ export default function AppointmentPrice({
     <div className="flex justify-between items-center w-full">
       <div className="flex flex-col gap-1">
         <h4
-          className="font-semibold text-base text-neutral-600"
+          className="font-medium text-base text-neutral-600"
           dangerouslySetInnerHTML={{ __html: name }}
         ></h4>
         <p

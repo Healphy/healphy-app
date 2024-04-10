@@ -1,9 +1,11 @@
 import { type AppointmentPriceProps } from 'components/AppointmentPrice'
+import { type DoctorProps } from 'components/Doctor'
 import { type SmallCardProp } from 'components/SmallCard'
 
 export interface DashboardProps {
   smallCard: SmallCardProp[]
   nextAppointments: AppointmentPriceProps[]
+  doctors: DoctorProps[]
 }
 
 export const DashboardData: DashboardProps = {
@@ -79,6 +81,40 @@ export const DashboardData: DashboardProps = {
       doctor: 'Dr. Ernesto Fonseca',
       date: '4 de Janeiro, 13h30',
       price: 200,
+    },
+  ],
+  doctors: [
+    {
+      img: {
+        path: 'https://github.com/bonatoneto.png',
+        alt: 'foto-neto-bonato',
+      },
+      name: 'Neto Bonato',
+      role: 'Urologista',
+    },
+    {
+      img: {
+        path: 'https://github.com/GustavoJannuzzi.png',
+        alt: 'foto-gustavo',
+      },
+      name: 'Gustavo Jannuzzi',
+      role: 'Cardiologista',
+    },
+    {
+      img: {
+        path: 'https://github.com/barp14.png',
+        alt: 'foto-joao',
+      },
+      name: 'João Arthur Barp Begnini',
+      role: 'Nutricionista',
+    },
+    {
+      img: {
+        path: 'https://github.com/ramux2.png',
+        alt: 'foto-guilherme',
+      },
+      name: 'Guilherme Oliver Branches',
+      role: 'Obstetra',
     },
   ],
 }

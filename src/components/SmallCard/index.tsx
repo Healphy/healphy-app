@@ -12,7 +12,7 @@ export default function SmallCard({ cardTitle, cardData }: SmallCardProp) {
           dangerouslySetInnerHTML={{ __html: cardTitle }}
         ></h3>
         <span
-          className="text-2xl font-bold text-neutral-600"
+          className="text-2xl font-semibold text-neutral-600"
           dangerouslySetInnerHTML={{ __html: cardData }}
         ></span>
       </div>
