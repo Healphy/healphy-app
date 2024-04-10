@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import googleIcon from '../../../public/icons/google.svg'
+import Input from 'components/Input'
 
 export default function LoginPage(): JSX.Element {
   return (
@@ -21,28 +22,18 @@ export default function LoginPage(): JSX.Element {
             Por favor, insira seu e-mail e sua senha.
           </p>
           <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
-              <label htmlFor="e-mail" className="text-base text-gray-950">
-                E-mail
-              </label>
-              <input
-                type="email"
-                id="e-mail"
-                placeholder="Insira seu e-mail"
-                className="w-96 p-3 border rounded-lg outline-none"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="e-mail" className="text-base text-gray-950">
-                Senha
-              </label>
-              <input
-                type="email"
-                id="e-mail"
-                placeholder="Insira sua senha"
-                className="w-96 p-3 border rounded-lg outline-none"
-              />
-            </div>
+            <Input
+              label="E-mail"
+              type="email"
+              id="email"
+              placeholder="Insira seu e-mail"
+            />
+            <Input
+              label="Senha"
+              type="password"
+              id="password"
+              placeholder="Insira sua senha"
+            />
             <div className="flex justify-end">
               <a href="#" className="text-base text-blue-600 underline">
                 Esqueci a senha
