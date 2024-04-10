@@ -6,7 +6,7 @@ import profileIcon from '../../../public/icons/profile.svg'
 
 export default function SideMenu() {
   return (
-    <aside className="min-w-60 h-full bg-white">
+    <aside className="min-w-60 bg-white">
       <ul className="flex flex-col p-4 gap-4">
         <SidebarButton
           href="/dashboard"

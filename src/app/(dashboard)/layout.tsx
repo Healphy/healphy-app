@@ -27,7 +27,7 @@ export default function DashboardLayout({
       <body className="w-full bg-slate-600">
         <div>
           <Header />
-          <div className="flex bg-zinc-100">
+          <div className="flex">
             <SideMenu />
             {children}
           </div>
