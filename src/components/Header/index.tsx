@@ -19,7 +19,7 @@ export default function Header() {
             alt="profile-icon"
             src="https://github.com/bonatoneto.png"
             name="Neto Bonato"
-            role="Dr. Pediatra"
+            role="Dr. Urologista"
           />
         </Link>
       </div>
