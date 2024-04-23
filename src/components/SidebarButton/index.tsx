@@ -2,7 +2,8 @@
 
 import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 interface SidebarButtonProps {
   href: string
@@ -13,17 +14,18 @@ interface SidebarButtonProps {
 
 export function SidebarButton(props: SidebarButtonProps) {
   const [isSelected, setIsSelected] = useState(false)
-
-  const handleClick = () => {
-    setIsSelected(!isSelected)
-  }
+  const currentPath = usePathname()
 
   const iconStyle = {
     filter: isSelected ? 'brightness(0) invert(1)' : 'none',
   }
 
+  useEffect(() => {
+    setIsSelected(currentPath === props.href)
+  }, [currentPath, props.href])
+
   return (
-    <Link href={props.href} className="cursor-pointer" onClick={handleClick}>
+    <Link href={props.href} className="cursor-pointer" passHref>
       <div
         className={`flex w-full p-4 rounded-xl gap-2 ${
           !isSelected
