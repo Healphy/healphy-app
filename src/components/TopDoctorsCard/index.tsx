@@ -2,7 +2,14 @@ import Doctor from 'components/Doctor'
 import Link from 'next/link'
 import { DashboardData } from 'utils/mocks/dashboard-mock'
 
-export default function TopDoctorsCard() {
+interface TopDoctorsCardProps {
+  id: number
+  doctorName: string
+  doctorLastName: string
+  speciality: string
+}
+
+export default function TopDoctorsCard(): TopDoctorsCardProps {
   const doctorProps = DashboardData
   return (
     <div className="w-full bg-white p-6 rounded-xl">

@@ -3,10 +3,26 @@ import PatientsCard from 'components/PatientsCard'
 import SmallCard from 'components/SmallCard'
 import TopDoctorsCard from 'components/TopDoctorsCard'
 import TotalRevenueCard from 'components/TotalRevenueCard'
+import { listDoctors } from 'services/services'
 import { DashboardData } from 'utils/mocks/dashboard-mock'
 
-export default function DashboardPage() {
+export interface DoctorDataProps {
+  id: number
+  doctorName: string
+  doctorLastName: string
+  birthData?: Date
+  gender?: string
+  nationality?: string
+  email?: string
+  crm?: string
+  cnpj?: string
+  speciality?: string
+}
+
+export default async function DashboardPage() {
   const dashboardProps = DashboardData
+  const doctorsData = await listDoctors()
+  console.log(doctorsData.data)
 
   return (
     <main className="p-7 w-full rounded-xl bg-zinc-100">
