@@ -8,7 +8,7 @@ import Link from 'next/link'
 export default function Header() {
   return (
     <header className="flex items-center justify-center justify-between h-20 bg-white px-6">
-      <Image src={logo} alt="logo-healphy" quality={100} />
+      <Image src={logo} alt="logo-healphy" quality={100} priority={true} />
       <SearchInput placeholder="Buscar" type="text" />
       <div className="flex items-center ml-6">
         <div className="mr-5 w-6 h-6">

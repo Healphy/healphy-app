@@ -1,28 +1,18 @@
+import LoadingCard from 'app/loading'
 import NextAppointments from 'components/NextAppointments'
 import PatientsCard from 'components/PatientsCard'
 import SmallCard from 'components/SmallCard'
 import TopDoctorsCard from 'components/TopDoctorsCard'
 import TotalRevenueCard from 'components/TotalRevenueCard'
+import { Suspense } from 'react'
 import { listDoctors } from 'services/services'
 import { DashboardData } from 'utils/mocks/dashboard-mock'
 
-export interface DoctorDataProps {
-  id: number
-  doctorName: string
-  doctorLastName: string
-  birthData?: Date
-  gender?: string
-  nationality?: string
-  email?: string
-  crm?: string
-  cnpj?: string
-  speciality?: string
-}
-
 export default async function DashboardPage() {
   const dashboardProps = DashboardData
-  const doctorsData = await listDoctors()
-  console.log(doctorsData.data)
+  const doctorsResponse = await listDoctors()
+  const doctorsData = doctorsResponse.data
+  console.log(doctorsData)
 
   return (
     <main className="p-7 w-full rounded-xl bg-zinc-100">
@@ -41,7 +31,9 @@ export default async function DashboardPage() {
           <div className="flex w-full flex-col gap-6">
             <TotalRevenueCard />
             <div className="flex min-h-fit gap-6">
-              <TopDoctorsCard />
+              <Suspense fallback={<LoadingCard />}>
+                <TopDoctorsCard />
+              </Suspense>
               <PatientsCard />
             </div>
           </div>

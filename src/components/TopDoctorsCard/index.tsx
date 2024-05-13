@@ -1,16 +1,17 @@
 import Doctor from 'components/Doctor'
 import Link from 'next/link'
-import { DashboardData } from 'utils/mocks/dashboard-mock'
+import { listDoctors } from 'services/services'
+import { type DoctorDataProps } from 'utils/types/doctors-type'
 
-interface TopDoctorsCardProps {
-  id: number
-  doctorName: string
-  doctorLastName: string
-  speciality: string
+async function getDoctorsData(): Promise<DoctorDataProps[]> {
+  await new Promise((resolve) => setTimeout(resolve, 3000))
+  const response = await listDoctors()
+  return response.data
 }
 
-export default function TopDoctorsCard(): TopDoctorsCardProps {
-  const doctorProps = DashboardData
+export default async function TopDoctorsCard() {
+  const doctorsData = await getDoctorsData()
+
   return (
     <div className="w-full bg-white p-6 rounded-xl">
       <div className="flex w-full justify-between items-center">
@@ -23,9 +24,13 @@ export default function TopDoctorsCard(): TopDoctorsCardProps {
         </Link>
       </div>
       <ul className="flex flex-col gap-4 mt-6">
-        {doctorProps.doctors.map((item, index) => (
-          <li key={`${index}-${item.name}`}>
-            <Doctor name={item.name} role={item.role} img={item.img} />
+        {doctorsData.map((doctor, index) => (
+          <li key={`${index}-${doctor.id}`}>
+            <Doctor
+              name={`${doctor.doctorsName} ${doctor.doctorsLastName}`}
+              role={doctor.speciality}
+              img={doctor?.img}
+            />
           </li>
         ))}
       </ul>
