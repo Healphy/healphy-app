@@ -1,9 +1,6 @@
 export interface DoctorProps {
   name: string
-  img: {
-    path: string
-    alt: string
-  }
+  img: string
   role: string
 }
 
@@ -11,11 +8,7 @@ export default function Doctor({ name, img, role }: DoctorProps) {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-4">
-        <img
-          className="rounded-full w-10 h-10"
-          src={img?.path}
-          alt={img?.alt}
-        />
+        <img className="rounded-full w-10 h-10" src={img} alt={img} />
         <div className="">
           <span
             className="text-sm font-medium text-neutral-600"

@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       maxHeight: {
         custom: '744px',
+        customAppointment: '940px',
       },
     },
   },

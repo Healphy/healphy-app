@@ -5,14 +5,10 @@ import SmallCard from 'components/SmallCard'
 import TopDoctorsCard from 'components/TopDoctorsCard'
 import TotalRevenueCard from 'components/TotalRevenueCard'
 import { Suspense } from 'react'
-import { listDoctors } from 'services/services'
 import { DashboardData } from 'utils/mocks/dashboard-mock'
 
 export default async function DashboardPage() {
   const dashboardProps = DashboardData
-  const doctorsResponse = await listDoctors()
-  const doctorsData = doctorsResponse.data
-  console.log(doctorsData)
 
   return (
     <main className="p-7 w-full rounded-xl bg-zinc-100">

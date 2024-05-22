@@ -1,3 +1,4 @@
+'use server'
 import Doctor from 'components/Doctor'
 import Link from 'next/link'
 import { listDoctors } from 'services/services'
@@ -28,8 +29,12 @@ export default async function TopDoctorsCard() {
           <li key={`${index}-${doctor.id}`}>
             <Doctor
               name={`${doctor.doctorsName} ${doctor.doctorsLastName}`}
-              role={doctor.speciality}
-              img={doctor?.img}
+              role={doctor.speciality === 'Dicks' ? 'Médico' : ''}
+              img={
+                doctor?.img?.path === undefined
+                  ? 'https://github.com/barp14.png'
+                  : ''
+              }
             />
           </li>
         ))}

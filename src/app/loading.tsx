@@ -2,7 +2,7 @@ export default function LoadingCard() {
   return (
     <div
       role="status"
-      className="max-w-full p-4 space-y-4 border border-gray-200 divide-y divide-gray-200 rounded-xl shadow animate-pulse dark:divide-gray-400 md:p-6 dark:border-gray-400"
+      className="w-full p-4 space-y-4 rounded-xl animate-pulse md:p-8 bg-white"
     >
       <div className="flex items-center justify-between">
         <div>
