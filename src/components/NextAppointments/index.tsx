@@ -6,7 +6,7 @@ export default function NextAppointments() {
   const appointmentsProps = DashboardData
 
   return (
-    <div className="flex flex-col w-3/6 max-h-custom p-5 rounded-xl bg-white">
+    <section className="flex flex-col w-3/6 p-5 rounded-xl bg-white">
       <div className="flex flex-col gap-2">
         <div className="flex justify-between">
           <h2 className="text-lg font-medium text-neutral-600">
@@ -34,6 +34,6 @@ export default function NextAppointments() {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   )
 }

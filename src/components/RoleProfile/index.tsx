@@ -7,7 +7,7 @@ interface RoleProfileProps {
 
 export default function RoleProfile(props: RoleProfileProps) {
   return (
-    <div className="flex min-w-36 max-w-48 gap-2">
+    <div className="flex min-w-40 max-w-48 gap-2">
       <div className="flex w-10 h-10">
         <img
           src={props.src}

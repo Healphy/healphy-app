@@ -1,4 +1,7 @@
+import { Location } from 'components/Location'
+
 export interface AppointmentCardProps {
+  id?: number
   patientName: string
   location: string
   appoinmentDate: string
@@ -8,20 +11,24 @@ export interface AppointmentCardProps {
 }
 
 export default function AppointmentCard(props: AppointmentCardProps) {
+  const replacedPatientName = props.patientName
+    .replace(/\s+/g, '-')
+    .toLowerCase()
+
   return (
-    <div className="flex justify-between gap-3 w-full max-w-lg m-6">
+    <a
+      href={`/consultas/detalhes/${replacedPatientName}`}
+      className="flex justify-between gap-3 w-full max-w-lg m-6"
+    >
       <div className="flex flex-col gap-2">
         <p className="font-medium text-base">{props.patientName}</p>
+        <Location city={props.location} />
         <div className="flex items-center gap-1">
-          <img src="/icons/location.svg" alt="icone de localização" />
-          <p className="text-sm text-gray-500">Curitiba - PR</p>
-        </div>
-        <div className="flex items-center gap-1">
-          <img src="/icons/calendar.svg" alt="icone de localização" />
+          <img src="/icons/calendar.svg" alt="icone de calendario" />
           <p className="text-sm text-black">4 de Janeiro de 2022</p>
         </div>
         <div className="flex items-center gap-1">
-          <img src="/icons/arrows.svg" alt="icone de localização" />
+          <img src="/icons/arrows.svg" alt="icone de seta" />
           <p className="text-sm text-black">Consulta Mensal Psiquiatrica</p>
         </div>
       </div>
@@ -34,6 +41,6 @@ export default function AppointmentCard(props: AppointmentCardProps) {
           <p>Bradesco Saúde Int.</p>
         </div>
       </div>
-    </div>
+    </a>
   )
 }

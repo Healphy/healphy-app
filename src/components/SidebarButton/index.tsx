@@ -15,7 +15,6 @@ interface SidebarButtonProps {
 export function SidebarButton(props: SidebarButtonProps) {
   const [isSelected, setIsSelected] = useState(false)
   const currentPath = usePathname()
-
   const iconStyle = {
     filter: isSelected ? 'brightness(0) invert(1)' : 'none',
   }
