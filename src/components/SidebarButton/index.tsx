@@ -19,9 +19,16 @@ export function SidebarButton(props: SidebarButtonProps) {
     filter: isSelected ? 'brightness(0) invert(1)' : 'none',
   }
 
+  function getFirstRoute(path: string): string {
+    const match: RegExpMatchArray | null = path.match(/^\/[^/]*/)
+    return match != null ? match[0] : path
+  }
+
+  const firstRoute = getFirstRoute(currentPath)
+
   useEffect(() => {
-    setIsSelected(currentPath === props.href)
-  }, [currentPath, props.href])
+    setIsSelected(firstRoute === props.href)
+  }, [firstRoute, props.href])
 
   return (
     <Link href={props.href} className="cursor-pointer" passHref>

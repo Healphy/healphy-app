@@ -2,6 +2,7 @@ import { Button } from 'components/Button'
 import { Location } from 'components/Location'
 import { type Metadata } from 'next'
 import Link from 'next/link'
+import { createSlug } from 'utils/functions/string-treatment'
 
 export const metadata: Metadata = {
   title: 'Healphy | Detalhes da consulta',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default function AppointmentDetailsPage() {
+  const replacedPatientName = createSlug('João Arthur Barp')
   return (
     <main className="p-7 w-full rounded-xl bg-zinc-100">
       <div className="p-5 rounded-2xl bg-white">
@@ -105,11 +107,13 @@ export default function AppointmentDetailsPage() {
                 color="bg-red-400"
                 hover="hover:bg-red-500"
               />
-              <Button
-                text="Editar"
-                color="bg-indigo-400"
-                hover="hover:bg-indigo-500"
-              />
+              <Link href={`/consultas/detalhes/${replacedPatientName}/editar`}>
+                <div
+                  className={`w-full flex items-center justify-center gap-1 rounded-lg bg-indigo-400 hover:bg-indigo-500 p-3 text-white font-medium transition-all`}
+                >
+                  Editar
+                </div>
+              </Link>
             </div>
           </div>
         </div>

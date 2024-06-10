@@ -1,4 +1,6 @@
 import { Location } from 'components/Location'
+import Link from 'next/link'
+import { createSlug } from 'utils/functions/string-treatment'
 
 export interface AppointmentCardProps {
   id?: number
@@ -11,12 +13,10 @@ export interface AppointmentCardProps {
 }
 
 export default function AppointmentCard(props: AppointmentCardProps) {
-  const replacedPatientName = props.patientName
-    .replace(/\s+/g, '-')
-    .toLowerCase()
+  const replacedPatientName = createSlug(props.patientName)
 
   return (
-    <a
+    <Link
       href={`/consultas/detalhes/${replacedPatientName}`}
       className="flex justify-between gap-3 w-full max-w-lg m-6"
     >
@@ -41,6 +41,6 @@ export default function AppointmentCard(props: AppointmentCardProps) {
           <p>Bradesco Saúde Int.</p>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
