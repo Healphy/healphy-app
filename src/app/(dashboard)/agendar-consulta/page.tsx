@@ -1,16 +1,31 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+'use client'
 import { Button } from 'components/Button'
-import { Location } from 'components/Location'
-import { type Metadata } from 'next'
+import { SecondaryInput } from 'components/Inputs/SecondaryInput'
 import Link from 'next/link'
-import { createSlug } from 'utils/functions/string-treatment'
+import { useForm } from 'react-hook-form'
 
-export const metadata: Metadata = {
-  title: 'Healphy | Detalhes da consulta',
-  description: 'Healphy | Consultas',
+interface AppointmentProps {
+  name: string
+  agreement: string
+  city: string
+  street: string
+  number: number
+  region: string
+  complement: string
+  'reason-consultation': string
+  'consult-value': string
+  'doctor-name': string
+  crm: string
 }
 
 export default function AppointmentDetailsPage() {
-  const replacedPatientName = createSlug('João Arthur Barp')
+  const { register, handleSubmit } = useForm()
+
+  function submitForm(values: any) {
+    console.log(values)
+  }
+
   return (
     <main className="p-7 w-full rounded-xl bg-zinc-100">
       <div className="p-5 rounded-2xl bg-white">
@@ -22,101 +37,108 @@ export default function AppointmentDetailsPage() {
             <h1 className="text-2xl font-medium">Agendar consulta</h1>
           </div>
         </div>
-        <div className="flex gap-6 mt-6">
-          <div className="flex flex-col gap-6">
-            <div className="flex justify-between">
-              <div>
-                <h2 className="text-lg font-medium mb-2">Consulta</h2>
-                <div className="flex flex-col gap-1">
-                  <span className="text-2xl font-medium">João Arthur Barp</span>
-                  <Location city="Curitiba - PR" />
-                </div>
-              </div>
-              <div>
-                <p className="font-medium text-xl">Valor</p>
-                <span className="font-semibold text-blue-600">R$80,00</span>
-              </div>
-            </div>
-            <h3 className="text-xl font-medium">Lorem Ipsum Lorem ipsum</h3>
-            <div>
-              <p className="text-2xl font-medium mb-2">Descrição</p>
-              <p className="text-sm text-neutral-500">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Excepturi facere iste nisi laborum, dolorum possimus, voluptates
-                natus explicabo numquam deserunt eius similique cumque,
-                voluptate eum quibusdam fugit. Laborum, eveniet et.
-              </p>
-            </div>
-            <div>
-              <p className="text-2xl font-medium mb-2">Diagnóstico</p>
-              <p className="text-sm text-neutral-500">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-                voluptatem tenetur nisi architecto sequi autem commodi
-                praesentium saepe exercitationem a, explicabo assumenda libero
-                alias reiciendis magni quos, unde laboriosam nemo. Saepe facilis
-                libero quibusdam cumque odit doloribus quisquam error itaque
-                maiores, temporibus molestias ipsa aliquid dolorem perspiciatis
-                mollitia reprehenderit atque ea nihil neque deleniti! Earum
-                quibusdam vel magni aut accusamus?
-              </p>
-            </div>
+        <form
+          onSubmit={handleSubmit(submitForm)}
+          className="flex w-full mt-8 gap-24"
+        >
+          <div className=" flex flex-col w-1/2 gap-2">
+            <p className="text-2xl font-medium mb-2">Paciente</p>
+            <SecondaryInput
+              {...register('name')}
+              id="name"
+              label="Nome"
+              placeholder="Informe o nome do paciente"
+              type="text"
+            />
+            <SecondaryInput
+              {...register('agreement')}
+              id="agreement"
+              label="Convênio"
+              placeholder="Convênio do paciente"
+              type="text"
+            />
+            <p className="text-lg font-medium mt-4 mb-2">
+              Endereço do paciente
+            </p>
+            <SecondaryInput
+              {...register('city')}
+              id="city"
+              label="Cidade"
+              placeholder="Cidade do paciente"
+              type="text"
+            />
+            <SecondaryInput
+              {...register('street')}
+              id="street"
+              label="Rua"
+              placeholder="Nome da rua do paciente"
+              type="text"
+            />
+            <SecondaryInput
+              {...register('number')}
+              id="number"
+              label="Número"
+              placeholder="Número da residência"
+              type="text"
+            />
+            <SecondaryInput
+              {...register('region')}
+              id="region"
+              label="Bairro"
+              placeholder="Bairro do paciente"
+              type="text"
+            />
+            <SecondaryInput
+              {...register('complement')}
+              id="complement"
+              label="Complemento"
+              placeholder="Complemento"
+              type="text"
+            />
           </div>
-          <div className="w-full flex flex-col items-center justify-between gap-48">
-            <div className="rounded-xl border p-6 w-full max-w-96 h-fit">
-              <div className="flex justify-end text-end cursor-pointer">
-                <img
-                  src="/icons/profile.svg"
-                  alt="icone de perfil"
-                  width={20}
-                />
-              </div>
-              <div className="flex flex-col gap-1 text-center items-center">
-                <p className="font-medium text-lg">Neto Bonato</p>
-                <p className="text-sm text-neutral-500 font-medium">
-                  Dr. Ortopedista
-                </p>
-                <Location city="Curitiba, PR - Brasil" />
-              </div>
-              <div className="flex gap-4 mt-6">
-                <Button
-                  iconPath="/icons/message.svg"
-                  text="Mensagem"
-                  color="bg-blue-500"
-                  hover="hover:bg-blue-600"
-                />
-                <Button
-                  text="Pesquisar"
-                  color="bg-green-400"
-                  hover="hover:bg-green-500"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col w-full gap-4">
+          <div className="flex flex-col w-1/2 gap-2">
+            <p className="text-2xl font-medium mb-2">Médico</p>
+            <SecondaryInput
+              {...register('reason-consultation')}
+              id="reason-consultation"
+              label="Motivo da consulta"
+              placeholder="Qual o motivo da consulta?"
+              type="text"
+            />
+            <SecondaryInput
+              {...register('consult-value')}
+              id="consult-value"
+              label="Valor"
+              placeholder="Informe o valor da consulta"
+              type="text"
+            />
+            <p className="text-lg font-medium mt-4 mb-2">
+              Detalhes da consulta
+            </p>
+            <SecondaryInput
+              {...register('doctor-name')}
+              id="doctor-name"
+              label="Nome do médico"
+              placeholder="Informe o nome do médico que irá realizar a consulta"
+              type="text"
+            />
+            <SecondaryInput
+              {...register('crm')}
+              id="crm"
+              label="CRM do médico"
+              placeholder="Informe o CRM do médico"
+              type="number"
+            />
+            <div className="mt-7">
               <Button
-                text="Realizada"
+                text="Criar Consulta"
                 color="bg-blue-500"
                 hover="hover:bg-blue-600"
+                type="submit"
               />
-              <Button
-                text="Cancelar"
-                color="bg-orange-400"
-                hover="hover:bg-orange-500"
-              />
-              <Button
-                text="Não compareceu"
-                color="bg-red-400"
-                hover="hover:bg-red-500"
-              />
-              <Link href={`/consultas/detalhes/${replacedPatientName}/editar`}>
-                <div
-                  className={`w-full flex items-center justify-center gap-1 rounded-lg bg-indigo-400 hover:bg-indigo-500 p-3 text-white font-medium transition-all`}
-                >
-                  Editar
-                </div>
-              </Link>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </main>
   )

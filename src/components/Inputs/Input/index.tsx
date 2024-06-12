@@ -1,15 +1,10 @@
-interface InputProps {
-  label: string
-  id: string
-  type: string
-  placeholder: string
-}
+import { type InputProps } from '../types'
 
 export default function Input(props: InputProps) {
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={props.id} className="text-base text-gray-950">
-        {props.label}
+        {props?.label}
       </label>
       <input
         type={props.type}

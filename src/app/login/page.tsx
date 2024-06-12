@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import googleIcon from '../../../public/icons/google.svg'
-import Input from 'components/Input'
+import Input from 'components/Inputs/Input'
 
 export default function LoginPage(): JSX.Element {
   return (
