@@ -1,5 +1,5 @@
 interface LocationProp {
-  city: string
+  city?: string
 }
 
 export const Location = ({ city }: LocationProp) => {

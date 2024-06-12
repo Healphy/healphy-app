@@ -19,7 +19,7 @@ export default function AppointmentDetailsPage() {
             <Link href="/consultas">
               <img src="/icons/arrow-left.svg" alt="ícone voltar" />
             </Link>
-            <h1 className="text-2xl font-medium">Detalhes</h1>
+            <h1 className="text-2xl font-medium">Agendar consulta</h1>
           </div>
         </div>
         <div className="flex gap-6 mt-6">
@@ -61,7 +61,7 @@ export default function AppointmentDetailsPage() {
               </p>
             </div>
           </div>
-          <div className="w-full flex flex-col justify-between gap-48">
+          <div className="w-full flex flex-col items-center justify-between gap-48">
             <div className="rounded-xl border p-6 w-full max-w-96 h-fit">
               <div className="flex justify-end text-end cursor-pointer">
                 <img
@@ -91,7 +91,7 @@ export default function AppointmentDetailsPage() {
                 />
               </div>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col w-full gap-4">
               <Button
                 text="Realizada"
                 color="bg-blue-500"

@@ -5,10 +5,10 @@ import { createSlug } from 'utils/functions/string-treatment'
 export interface AppointmentCardProps {
   id?: number
   patientName: string
-  location: string
-  appoinmentDate: string
-  appointmentType: string
-  value: string
+  location?: string
+  appoinmentDate?: string
+  appointmentType?: string
+  value?: string
   agreement: string
 }
 
@@ -29,16 +29,16 @@ export default function AppointmentCard(props: AppointmentCardProps) {
         </div>
         <div className="flex items-center gap-1">
           <img src="/icons/arrows.svg" alt="icone de seta" />
-          <p className="text-sm text-black">Consulta Mensal Psiquiatrica</p>
+          <p className="text-sm text-black">{props.appointmentType}</p>
         </div>
       </div>
       <div className="flex flex-col justify-between w-full max-w-48">
         <span className="w-full text-center rounded-md bg-indigo-200 text-indigo-600 font-medium p-2">
-          R$ 740,00
+          {props.value}
         </span>
         <div className="text-sm text-gray-500">
           <p>Convênio:</p>
-          <p>Bradesco Saúde Int.</p>
+          <p>{props.agreement}</p>
         </div>
       </div>
     </Link>

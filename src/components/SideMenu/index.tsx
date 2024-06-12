@@ -21,6 +21,12 @@ export default function SideMenu() {
           alt="consult-icon"
         />
         <SidebarButton
+          href="/agendar-consulta"
+          name="Agendar consulta"
+          icon={consultIcon}
+          alt="consult-icon"
+        />
+        <SidebarButton
           href="/medicos"
           name="Médicos"
           icon={doctorIcon}
