@@ -1,9 +1,10 @@
 import AppointmentPrice from 'components/AppointmentPrice'
 import Link from 'next/link'
-import { DashboardData } from 'utils/mocks/dashboard-mock'
+import { getAllAppointments } from 'services/services'
 
-export default function NextAppointments() {
-  const appointmentsProps = DashboardData
+export default async function NextAppointments() {
+  const appointmentsResponse = await getAllAppointments()
+  const appointmentsData = appointmentsResponse.data
 
   return (
     <section className="flex flex-col w-3/6 p-5 rounded-xl bg-white">
@@ -23,13 +24,12 @@ export default function NextAppointments() {
         </div>
       </div>
       <ul className="flex flex-col gap-5 my-5 scrollbar scrollbar-none overflow-y-scroll">
-        {appointmentsProps.nextAppointments.map((item, index) => (
-          <li key={`${index}-${item.name}`}>
+        {appointmentsData.map((item, index) => (
+          <li key={`${index}-${item.pacientName}`}>
             <AppointmentPrice
-              name={item.name}
-              doctor={item.doctor}
-              date={item.date}
-              price={item.price}
+              name={item.pacientName}
+              date={item.dateTime}
+              price={item.appointmentPrice}
             />
           </li>
         ))}

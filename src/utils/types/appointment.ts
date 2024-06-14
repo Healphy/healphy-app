@@ -10,10 +10,13 @@ export interface AppointmentResponseProps {
   appointmentPrice: string
   status: string
   doctorId: number
-  doctor: null
+  doctor: {
+    doctorName: string
+  }
 }
 
 export interface AppointmentCardsDataProps {
+  id: number
   pacientName: string
   healthInsurance: string
   appointmentDescription: string

@@ -2,10 +2,7 @@ import AppointmentCard from 'components/AppointmentCard'
 import { type Metadata } from 'next'
 import Link from 'next/link'
 import { getAllAppointments } from 'services/services'
-import {
-  type AppointmentCardsDataProps,
-  type AppointmentResponseProps,
-} from 'utils/types/appointment'
+import { mapAppointmentData } from 'utils/functions/mapAppointmentData'
 
 export const metadata: Metadata = {
   title: 'Healphy | Consultas',
@@ -16,18 +13,6 @@ export default async function ConsultsPage() {
   const appointmentsResponse = await getAllAppointments()
   const appointmentsData = appointmentsResponse.data
 
-  function mapAppointmentData(
-    appointments: AppointmentResponseProps[],
-  ): AppointmentCardsDataProps[] {
-    return appointments.map((appointment: AppointmentCardsDataProps) => {
-      return {
-        pacientName: appointment.pacientName,
-        appointmentDescription: appointment.appointmentDescription,
-        healthInsurance: appointment.healthInsurance,
-        appointmentPrice: appointment.appointmentPrice,
-      }
-    })
-  }
   const mapAppointmentsCard = mapAppointmentData(appointmentsData)
 
   return (
@@ -49,6 +34,7 @@ export default async function ConsultsPage() {
               className="flex w-full"
             >
               <AppointmentCard
+                slug={appointment.id}
                 patientName={appointment.pacientName}
                 appointmentType={appointment.appointmentDescription}
                 value={appointment?.appointmentPrice}

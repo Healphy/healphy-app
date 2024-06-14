@@ -1,13 +1,11 @@
 export interface AppointmentPriceProps {
   name: string
-  doctor: string
   date: string
-  price: number
+  price: number | string
 }
 
 export default function AppointmentPrice({
   name,
-  doctor,
   date,
   price,
 }: AppointmentPriceProps) {
@@ -18,10 +16,10 @@ export default function AppointmentPrice({
           className="font-medium text-base text-neutral-600"
           dangerouslySetInnerHTML={{ __html: name }}
         ></h4>
-        <p
+        {/* <p
           className="text-sm text-neutral-400"
           dangerouslySetInnerHTML={{ __html: doctor }}
-        ></p>
+        ></p> */}
         <p
           className="text-sm text-neutral-400"
           dangerouslySetInnerHTML={{ __html: date }}

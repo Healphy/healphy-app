@@ -1,9 +1,8 @@
 import { Location } from 'components/Location'
 import Link from 'next/link'
-import { createSlug } from 'utils/functions/string-treatment'
 
 export interface AppointmentCardProps {
-  id?: number
+  slug: number
   patientName: string
   location?: string
   appoinmentDate?: string
@@ -13,11 +12,9 @@ export interface AppointmentCardProps {
 }
 
 export default function AppointmentCard(props: AppointmentCardProps) {
-  const replacedPatientName = createSlug(props.patientName)
-
   return (
     <Link
-      href={`/consultas/detalhes/${replacedPatientName}`}
+      href={`/consultas/detalhes/${props.slug}`}
       className="flex justify-between gap-3 w-full max-w-lg m-6"
     >
       <div className="flex flex-col gap-2">
@@ -34,7 +31,7 @@ export default function AppointmentCard(props: AppointmentCardProps) {
       </div>
       <div className="flex flex-col justify-between w-full max-w-48">
         <span className="w-full text-center rounded-md bg-indigo-200 text-indigo-600 font-medium p-2">
-          {props.value}
+          {`R$ ${props.value}.00`}
         </span>
         <div className="text-sm text-gray-500">
           <p>Convênio:</p>
