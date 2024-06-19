@@ -31,7 +31,7 @@ export function SidebarButton(props: SidebarButtonProps) {
   }, [firstRoute, props.href])
 
   return (
-    <Link href={props.href} className="cursor-pointer" passHref>
+    <Link href={props.href} passHref>
       <div
         className={`flex w-full p-4 rounded-xl gap-2 ${
           !isSelected

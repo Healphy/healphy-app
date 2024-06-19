@@ -4,33 +4,13 @@ import { type AppointmentProps } from 'app/(dashboard)/agendar-consulta/page'
 import { Button } from 'components/Button'
 import { SecondaryInput } from 'components/Inputs/SecondaryInput'
 import { useForm } from 'react-hook-form'
-import { api } from 'services/config'
+import { createAppointment } from 'services/services'
 
 export const FormAppointment = async () => {
   const { register, handleSubmit } = useForm<AppointmentProps>()
 
-  async function submitForm(values: AppointmentProps) {
-    try {
-      await api.post('/Appointment/appointment', {
-        pacientName: values.name,
-        healthInsurance: values.agreement,
-        address: {
-          city: values.city,
-          region: values.region,
-          postalCode: values.postalCode,
-          streetName: values.street,
-          number: values.number,
-          complement: values.complement,
-        },
-        appointmentDescription: values['reason-consultation'],
-        appointmentPrice: values['consult-value'],
-        doctor: {
-          crm: values.crm,
-        },
-      })
-    } catch (error) {
-      console.log(error)
-    }
+  async function submitForm(formData: AppointmentProps) {
+    await createAppointment(formData)
   }
 
   return (

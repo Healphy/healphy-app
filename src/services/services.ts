@@ -12,5 +12,36 @@ export const postDoctors = async () =>
 export const getAllAppointments = async () =>
   await api.get<AppointmentResponseProps[]>('/Appointment/appointment')
 
-export const createAppointment = async (values: AppointmentProps) =>
-  await api.post('/Appointment/appointment')
+export const createAppointment = async (values: AppointmentProps) => {
+  try {
+    await api.post('/Appointment/appointment', {
+      pacientName: values.name,
+      healthInsurance: values.agreement,
+      address: {
+        city: values.city,
+        region: values.region,
+        postalCode: values.postalCode,
+        streetName: values.street,
+        number: values.number,
+        complement: values.complement,
+      },
+      appointmentDescription: values['reason-consultation'],
+      appointmentPrice: values['consult-value'],
+      doctor: {
+        crm: values.crm,
+      },
+    })
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const updateAppointment = async (values: { diagnostic: string }) => {
+  try {
+    await api.put('/Appointment/appointment', {
+      diagnostic: values.diagnostic,
+    })
+  } catch (error) {
+    console.error(error)
+  }
+}

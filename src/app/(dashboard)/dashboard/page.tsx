@@ -17,7 +17,7 @@ export default async function DashboardPage() {
   const dashboardProps = DashboardData
 
   return (
-    <main className="p-7 w-full rounded-xl bg-zinc-100">
+    <main className="p-7 w-full mt-20 rounded-xl bg-zinc-100">
       <h1 className="text-2xl font-semibold text-neutral-700 mb-5">
         Dashboard
       </h1>

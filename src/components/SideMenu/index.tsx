@@ -3,10 +3,11 @@ import dashboardIcon from '../../../public/icons/Dashboard.svg'
 import consultIcon from '../../../public/icons/building.svg'
 import doctorIcon from '../../../public/icons/person.svg'
 import profileIcon from '../../../public/icons/profile.svg'
+import { LogoutButton } from 'components/LogoutButton'
 
 export default function SideMenu() {
   return (
-    <aside className="min-w-60 bg-white">
+    <aside className="min-w-60 mt-20 bg-white">
       <ul className="flex flex-col p-4 gap-4">
         <SidebarButton
           href="/dashboard"
@@ -38,6 +39,7 @@ export default function SideMenu() {
           icon={profileIcon}
           alt="profile-icon"
         />
+        <LogoutButton />
       </ul>
     </aside>
   )
