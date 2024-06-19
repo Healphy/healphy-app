@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function DoctorsPage(): JSX.Element {
   return (
     <>
-      <main>
+      <main className="mt-20">
         <h1 className="text-5xl p-8">Médicos</h1>
       </main>
     </>

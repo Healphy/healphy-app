@@ -16,7 +16,7 @@ export default async function ConsultsPage() {
   const mapAppointmentsCard = mapAppointmentData(appointmentsData)
 
   return (
-    <main className="w-full px-6 py-8 rounded-xl bg-zinc-100">
+    <main className="w-full px-6 mt-20 py-8 rounded-xl bg-zinc-100">
       <div className="flex justify-between items-center">
         <h1 className="font-semibold text-3xl">Consultas</h1>
         <Link

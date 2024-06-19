@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AppointmentDetailsPage() {
   const replacedPatientName = createSlug('João Arthur Barp')
   return (
-    <main className="p-7 w-full rounded-xl bg-zinc-100">
+    <main className="p-7 mt-20 w-full rounded-xl bg-zinc-100">
       <div className="p-5 rounded-2xl bg-white">
         <div>
           <div className="flex gap-8 items-center">

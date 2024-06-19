@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between h-20 bg-white px-6">
+    <header className="fixed w-full flex items-center justify-between h-20 bg-white px-6 z-10">
       <a href="/">
         <Image src={logo} alt="logo-healphy" quality={100} priority={true} />
       </a>
