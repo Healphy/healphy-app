@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 'use-client'
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { type AppointmentProps } from 'app/(dashboard)/agendar-consulta/page'
 import { Button } from 'components/Button'
 import { SecondaryInput } from 'components/Inputs/SecondaryInput'
